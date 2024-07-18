@@ -63,13 +63,11 @@ def on_message_detection(client, userdata, message):
                 tts_message = distance_text + ". "
 
                 if objects_detected:
-                    object_distances.clear()
                     for obj in objects:
                         if obj in data:
-                            object_distance = data[obj]
-                            object_distances.append(object_distance)
-                            tts_message += f"{obj} detected. Minimum distance: {min_distance} cm. "
-                            print(f"{obj} detected. Minimum distance: {min_distance} cm.")
+                            obj_distance = data[obj]
+                            tts_message += f"{obj} detected. Minimum distance: {obj_distance} cm. "
+                            print(f"{obj} detected. Minimum distance: {obj_distance} cm.")
                 else:
                     tts_message += "Safe now. No object here."
                     print("Safe now. No object here.")
